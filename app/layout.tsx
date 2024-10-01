@@ -1,22 +1,35 @@
 import './globals.css';
+import type { Metadata, Viewport } from 'next';
+import { Manrope } from 'next/font/google';
+import { UserProvider } from '@/lib/auth';
+import { getUser } from '@/lib/db/queries';
 
-import { Analytics } from '@vercel/analytics/react';
-
-export const metadata = {
-  title: 'Next.js App Router + NextAuth + Tailwind CSS',
-  description:
-    'A user admin dashboard configured with Next.js, Postgres, NextAuth, Tailwind CSS, TypeScript, and Prettier.'
+export const metadata: Metadata = {
+  title: 'Next.js SaaS Starter',
+  description: 'Get started quickly with Next.js, Postgres, and Stripe.',
 };
 
+export const viewport: Viewport = {
+  maximumScale: 1,
+};
+
+const manrope = Manrope({ subsets: ['latin'] });
+
 export default function RootLayout({
-  children
+  children,
 }: {
   children: React.ReactNode;
 }) {
+  let userPromise = getUser();
+
   return (
-    <html lang="en">
-      <body className="flex min-h-screen w-full flex-col">{children}</body>
-      <Analytics />
+    <html
+      lang="en"
+      className={`bg-white dark:bg-gray-950 text-black dark:text-white ${manrope.className}`}
+    >
+      <body className="min-h-[100dvh] bg-gray-50">
+        <UserProvider userPromise={userPromise}>{children}</UserProvider>
+      </body>
     </html>
   );
 }
