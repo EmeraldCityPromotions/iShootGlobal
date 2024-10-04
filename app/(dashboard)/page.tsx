@@ -22,6 +22,7 @@ export default function HomePage() {
 								<a
 									href="https://vercel.com/templates/next.js/next-js-saas-starter"
 									target="_blank"
+									rel="noreferrer"
 								>
 									<Button className="bg-white hover:bg-gray-100 text-black border border-gray-200 rounded-full text-lg px-8 py-4 inline-flex items-center justify-center">
 										Deploy your own
@@ -110,6 +111,7 @@ export default function HomePage() {
 							<a
 								href="https://github.com/leerob/next-saas-starter"
 								target="_blank"
+								rel="noreferrer"
 							>
 								<Button className="bg-white hover:bg-gray-100 text-black border border-gray-200 rounded-full text-xl px-12 py-6 inline-flex items-center justify-center">
 									View the code

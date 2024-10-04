@@ -4,7 +4,8 @@
 	"files.trimTrailingWhitespace": true,
 	"git.branchProtection": ["main"],
 	"editor.codeActionsOnSave": {
-		"source.fixAll.biome": "explicit"
+		"source.fixAll.biome": "explicit",
+		"source.organizeImports.biome": "explicit"
 	},
 	"editor.rulers": [80],
 	"editor.formatOnSave": true,
