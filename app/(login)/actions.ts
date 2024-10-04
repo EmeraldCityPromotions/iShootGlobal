@@ -1,30 +1,30 @@
 "use server";
 
-import { z } from "zod";
-import { and, eq, sql } from "drizzle-orm";
-import { db } from "@/lib/db/drizzle";
-import {
-	User,
-	users,
-	teams,
-	teamMembers,
-	activityLogs,
-	type NewUser,
-	type NewTeam,
-	type NewTeamMember,
-	type NewActivityLog,
-	ActivityType,
-	invitations,
-} from "@/lib/db/schema";
-import { comparePasswords, hashPassword, setSession } from "@/lib/auth/session";
-import { redirect } from "next/navigation";
-import { cookies } from "next/headers";
-import { createCheckoutSession } from "@/lib/payments/stripe";
-import { getUser, getUserWithTeam } from "@/lib/db/queries";
 import {
 	validatedAction,
 	validatedActionWithUser,
 } from "@/lib/auth/middleware";
+import { comparePasswords, hashPassword, setSession } from "@/lib/auth/session";
+import { db } from "@/lib/db/drizzle";
+import { getUser, getUserWithTeam } from "@/lib/db/queries";
+import {
+	ActivityType,
+	type NewActivityLog,
+	type NewTeam,
+	type NewTeamMember,
+	type NewUser,
+	type User,
+	activityLogs,
+	invitations,
+	teamMembers,
+	teams,
+	users,
+} from "@/lib/db/schema";
+import { createCheckoutSession } from "@/lib/payments/stripe";
+import { and, eq, sql } from "drizzle-orm";
+import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
+import { z } from "zod";
 
 async function logActivity(
 	teamId: number | null | undefined,
@@ -136,7 +136,7 @@ export const signUp = validatedAction(signUpSchema, async (data, formData) => {
 			.from(invitations)
 			.where(
 				and(
-					eq(invitations.id, parseInt(inviteId)),
+					eq(invitations.id, Number.parseInt(inviteId)),
 					eq(invitations.email, email),
 					eq(invitations.status, "pending"),
 				),

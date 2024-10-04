@@ -12,7 +12,8 @@
 	},
 	"formatter": {
 		"enabled": true,
-		"indentStyle": "tab"
+		"indentStyle": "tab",
+		"formatWithErrors": false
 	},
 	"organizeImports": {
 		"enabled": true
@@ -23,7 +24,23 @@
 			"recommended": true,
 			"correctness": {
 				"noUnusedImports": "warn",
-				"noUnusedVariables": "warn"
+				"noUnusedVariables": "warn",
+				"useExhaustiveDependencies": "off"
+			},
+			"style": {
+				"noNonNullAssertion": "warn",
+				"useSelfClosingElements": {
+					"level": "warn",
+					"fix": "safe"
+				},
+				"noUnusedTemplateLiteral": {
+					"level": "warn",
+					"fix": "safe"
+				}
+			},
+			"suspicious": {
+				"noExplicitAny": "warn",
+				"noArrayIndexKey": "warn"
 			}
 		}
 	},

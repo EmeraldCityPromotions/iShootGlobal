@@ -1,7 +1,7 @@
-*.json
-*.tsx
-*.ts
-*.js
-*.jsx
-*.jsonc
-*.css
+**/*.json
+**/*.tsx
+**/*.ts
+**/*.js
+**/*.jsx
+**/*.jsonc
+**/*.css
