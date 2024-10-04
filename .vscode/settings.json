@@ -1,18 +1,14 @@
 {
-  "files.eol": "\n",
-  "files.insertFinalNewline": true,
-  "files.trimTrailingWhitespace": true,
-  "git.branchProtection": [
-    "main"
-  ],
-  "editor.codeActionsOnSave": {
-    "source.fixAll.biome": "explicit"
-  },
-  "editor.rulers": [
-    80
-  ],
-  "editor.formatOnSave": true,
-  "[javascript][typescript][javascriptreact][typescriptreact][css][json]": {
-    "editor.defaultFormatter": "biomejs.biome"
-  }
+	"files.eol": "\n",
+	"files.insertFinalNewline": true,
+	"files.trimTrailingWhitespace": true,
+	"git.branchProtection": ["main"],
+	"editor.codeActionsOnSave": {
+		"source.fixAll.biome": "explicit"
+	},
+	"editor.rulers": [80],
+	"editor.formatOnSave": true,
+	"[javascript][typescript][javascriptreact][typescriptreact][css][json]": {
+		"editor.defaultFormatter": "biomejs.biome"
+	}
 }
