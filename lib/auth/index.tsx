@@ -2,46 +2,46 @@
 
 import type { User } from "@/lib/db/schema";
 import {
-	type ReactNode,
-	createContext,
-	useContext,
-	useEffect,
-	useState,
+  type ReactNode,
+  createContext,
+  useContext,
+  useEffect,
+  useState,
 } from "react";
 import { use } from "react";
 
 type UserContextType = {
-	user: User | null;
-	setUser: (user: User | null) => void;
+  user: User | null;
+  setUser: (user: User | null) => void;
 };
 
 const UserContext = createContext<UserContextType | null>(null);
 
 export function useUser(): UserContextType {
-	const context = useContext(UserContext);
-	if (context === null) {
-		throw new Error("useUser must be used within a UserProvider");
-	}
-	return context;
+  const context = useContext(UserContext);
+  if (context === null) {
+    throw new Error("useUser must be used within a UserProvider");
+  }
+  return context;
 }
 
 export function UserProvider({
-	children,
-	userPromise,
+  children,
+  userPromise,
 }: {
-	children: ReactNode;
-	userPromise: Promise<User | null>;
+  children: ReactNode;
+  userPromise: Promise<User | null>;
 }) {
-	const initialUser = use(userPromise);
-	const [user, setUser] = useState<User | null>(initialUser);
+  const initialUser = use(userPromise);
+  const [user, setUser] = useState<User | null>(initialUser);
 
-	useEffect(() => {
-		setUser(initialUser);
-	}, [initialUser]);
+  useEffect(() => {
+    setUser(initialUser);
+  }, [initialUser]);
 
-	return (
-		<UserContext.Provider value={{ user, setUser }}>
-			{children}
-		</UserContext.Provider>
-	);
+  return (
+    <UserContext.Provider value={{ user, setUser }}>
+      {children}
+    </UserContext.Provider>
+  );
 }
