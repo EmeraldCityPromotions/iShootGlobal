@@ -17,3 +17,6 @@ pnpm install
 3. Get any .env variables you need from the team
 
 4. Install the recommended plugins for the project: [Biome](https://marketplace.visualstudio.com/items?itemName=biomejs.biome) or on nvim via Mason
+
+
+Test
