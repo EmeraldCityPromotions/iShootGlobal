@@ -20,7 +20,7 @@ jobs:
           key: ${{ secrets.DEPLOY_KEY }}
           source: '.'
           target: '~/project'
-          rm: true
+          rm: false
 
       - name: Run SSH Commands on Droplet
         uses: appleboy/ssh-action@v0.1.8
