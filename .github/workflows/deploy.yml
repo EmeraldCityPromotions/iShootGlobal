@@ -1,0 +1,37 @@
+name: Deploy to DigitalOcean Droplet
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Copy Files to Droplet
+        uses: appleboy/scp-action@v0.1.5
+        with:
+          host: ${{ secrets.DROPLET_IP }}
+          username: deploybot
+          key: ${{ secrets.DEPLOY_KEY }}
+          source: '.'
+          target: '~/project'
+          rm: true
+
+      - name: Run SSH Commands on Droplet
+        uses: appleboy/ssh-action@v0.1.8
+        with:
+          host: ${{ secrets.DROPLET_IP }}
+          username: deploybot
+          key: ${{ secrets.DEPLOY_KEY }}
+          script: |
+            cd ~/project
+            export NVM_DIR="$HOME/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+            pnpm install
+            pm2 restart emeraldcity || pm2 start pnpm --name emeraldcity -- start
+            pm2 save
