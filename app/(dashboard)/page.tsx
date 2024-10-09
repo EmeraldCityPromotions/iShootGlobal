@@ -67,14 +67,8 @@ export default function HomePage() {
                     <span className="text-sm text-gray-600">Comments:</span>
                     <span className="font-semibold text-gray-800">12</span>
                   </div>
-                  <Button
-                    variant="icon"
-                    size="sm"
-                    className="flex items-center space-x-1 bg-pink-500 hover:bg-pink-600 text-white"
-                  >
-                    <Heart className="w-4 h-4" />
-                    <span>Like</span>
-                  </Button>
+                  <Heart className="w-6 h-6 text-pink-500" />
+                  <span>Like</span>
                 </div>
               </div>
 
