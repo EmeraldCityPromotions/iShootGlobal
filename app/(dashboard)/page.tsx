@@ -45,7 +45,7 @@ export default function HomePage() {
                     <p className="text-sm text-gray-500">Photographer</p>
                   </div>
                   <Button
-                    variant="primary"
+                    variant="default"
                     size="sm"
                     className="bg-blue-500 hover:bg-blue-600"
                   >
