@@ -9,7 +9,7 @@ iShootGlobal photo contest app
 2. Clone the repository and install dependencies:
 
 ```bash
-git clone https://github.com/leerob/iShootGlobal.git
+git clone https://github.com/EmeraldCityPromotions/iShootGlobal.git
 cd iShootGlobal
 pnpm install
 ```
