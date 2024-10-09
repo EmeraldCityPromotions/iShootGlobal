@@ -17,5 +17,5 @@ jobs:
           PR_URL: ${{ github.event.pull_request.html_url }}
         run: |
           curl -H "Content-type: application/json" -X POST -d '{
-            "content": "New PR #${{ env.PR_NUMBER }} *opened* by ${{ env.PR_AUTHOR }}: **${{ env.PR_TITLE }}**\n__<${{ env.PR_URL }}>__",
+            "content": "New PR #${{ env.PR_NUMBER }} *opened* by ${{ env.PR_AUTHOR }}: **${{ env.PR_TITLE }}**\n__<${{ env.PR_URL }}>__"
           }' ${{ env.DISCORD_WEBHOOK }}
