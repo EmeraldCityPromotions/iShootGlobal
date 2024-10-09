@@ -41,6 +41,13 @@
       "suspicious": {
         "noExplicitAny": "warn",
         "noArrayIndexKey": "warn"
+      },
+      "nursery": {
+        "useSortedClasses": {
+          "level": "warn",
+          "options": {},
+          "fix": "safe"
+        }
       }
     }
   },
